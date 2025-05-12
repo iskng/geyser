@@ -77,7 +77,7 @@ impl GeyserPlugin for AgentFeedPlugin {
 
     fn on_load(&mut self, config_file_path: &str, is_reload: bool) -> Result<()> {
         solana_logger::setup_with_default("info");
-        info!("Loading {}...", self.name());
+        info!("Loading AgentFeedRedisStreamPlugin...");
         if is_reload {
             info!("Reloading {}...", self.name());
             self.inner = None;
