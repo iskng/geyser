@@ -1,0 +1,6 @@
+{
+    "libpath": "/path/to/your/plugin/target/release/libgeyser_agent_feed_plugin.so",
+    "redis_url": "redis://127.0.0.1/",
+    "program_id": "Cw6VFzwbVFV9GHYLTVsK55jujskQAZF63xFFsL8oGFjr",
+    "redis_stream_name": "agent_feed_updates"
+} 
