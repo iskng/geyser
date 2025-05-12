@@ -5,22 +5,16 @@ use agave_geyser_plugin_interface::geyser_plugin_interface::{
     ReplicaBlockInfoVersions,
     ReplicaTransactionInfoVersions,
     Result,
-    ReplicaAccountInfoV3,
 };
 use solana_program::pubkey::Pubkey;
-use solana_logger; // Added for solana_logger::setup_with_default
-use std::fs::File;
-use std::io::Read;
-use std::path::Path;
+use solana_logger;
 use std::str::FromStr;
-use std::sync::{ Arc, Mutex as StdMutex, atomic::{ AtomicU64, Ordering } };
+use std::sync::{ Arc, atomic::{ AtomicU64, Ordering } };
 use tokio::runtime::{ Builder, Runtime };
 use tokio::sync::Mutex as TokioMutex;
 
 use redis::aio::MultiplexedConnection;
-use redis::AsyncCommands;
 
-use serde::Deserialize;
 use thiserror::Error;
 use log::{ info, error };
 
