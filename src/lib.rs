@@ -76,17 +76,15 @@ impl GeyserPlugin for AgentFeedPlugin {
     }
 
     fn on_load(&mut self, config_file_path: &str, is_reload: bool) -> Result<()> {
+        solana_logger::setup_with_default("info");
+        info!("Loading {}...", self.name());
         if is_reload {
             info!("Reloading {}...", self.name());
             self.inner = None;
         }
 
         let parsed_config = PluginConfig::load_from_file(config_file_path)?;
-
-        // Setup logger
-        let log_level = parsed_config.log_level.as_deref().unwrap_or("info");
-        solana_logger::setup_with_default(log_level);
-        info!("Logger initialized with level: {}", log_level);
+        info!("Parsed config: {}", parsed_config.libpath);
 
         // Build Tokio runtime
         let runtime = Arc::new(
